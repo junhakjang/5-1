@@ -11,17 +11,14 @@ input.onButtonPressed(Button.A, function () {
 })
 input.onButtonPressed(Button.AB, function () {
     for (let x = 0; x <= 4; x++) {
-        led.toggle(4 - x, 4 - x)
-        z = 4 - x
-        for (let y = 0; y <= 4; y++) {
-            led.toggle(z - y, z)
+        for (let y = 0; y <= x; y++) {
             basic.pause(50)
-            led.toggle(z, z - y)
+            led.toggle(0 + y, x)
+            led.toggle(x, 0 + y)
         }
+        basic.pause(50)
+        led.toggle(0 + x, 0 + x)
     }
-})
-input.onButtonPressed(Button.B, function () {
-	
 })
 basic.forever(function () {
 	
